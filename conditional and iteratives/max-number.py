@@ -1,6 +1,6 @@
-x = int(input("enter x: "))
-y = int(input("enter y: "))
-z = int(input("enter z: "))
+x = int(input("enter value of x: "))
+y = int(input("enter value of y: "))
+z = int(input("enter value of z: "))
 
 if x > y and x > z:
     print(x,"is the greatest")
