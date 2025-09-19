@@ -9,4 +9,4 @@ elif ch >= 'a' and ch <= 'z':
 elif ch >= '0' and ch <= '9':
     print("you entered a digit")
 else:
-    ("you entered a special character")            
+    print("you entered a special character")            
