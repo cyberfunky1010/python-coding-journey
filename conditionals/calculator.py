@@ -3,7 +3,7 @@
 op = input("enter operator (+ - * / %)")
 num1 = float(input("enter num 1: "))
 num2 = float(input("enter num 2: "))
-
+result = None
 
 if op == '+':
     result = num1 + num2
