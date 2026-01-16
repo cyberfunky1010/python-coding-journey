@@ -1,4 +1,4 @@
-# rogram to take 2 inputs for day and month and calculate the day of the year.
+# program to take 2 inputs for day and month and calculate the day of the year.
 
 day = int(input("enter day :"))
 month = int(input("enter month :"))
