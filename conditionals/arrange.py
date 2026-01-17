@@ -4,7 +4,7 @@ x = int(input("enter x: "))
 y = int(input("enter y: "))
 z = int(input("enter y: "))
 
-min = mid = max = None
+min = mid = max = None  # UnboundLocalError or when assigning may crash
 
 if y < x and y < z:
      if z > x:
