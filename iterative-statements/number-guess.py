@@ -7,7 +7,10 @@ while ctr < 5 :
     if guess == number:
         print("you win!! :) ")
         break
+    elif guess > number:
+        print("too high")
     else:
-        ctr += 1
-if not ctr < 5:
+        print("too low")
+    ctr += 1
+if not ctr < 5:    # or if not ctr < 5:
     print("you lose :( \n The number was)", number)        
