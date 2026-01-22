@@ -28,3 +28,21 @@ for r in range(1,6):
         z = x/y
         print("quotient is ", z)
 print("program over!!!")        
+
+# program to illustrate the difference between break and continue
+
+print("the loop with 'break' produces output as: ")
+
+for i in range(1,11):
+     if i % 3 == 0:
+         break
+     else:
+         print(i)
+
+print("the loop with 'continue' produces output as: ")
+
+for j in range(1,11):
+    if j % 3 == 0:
+        continue
+    else:
+        print(j)
