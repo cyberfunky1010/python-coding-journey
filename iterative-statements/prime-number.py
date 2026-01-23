@@ -1,8 +1,12 @@
-num = int(input("enter a number: "))
+# prime number example 
 
-for a in range(1,num+1):
-    if num % a == 0 and num / a == num:
-        print("prime number")
+num = int(input("enter a number: "))
+lim = int(num/2) + 1
+for i in range(2,lim):
+  
+    rem = num % i
+    if rem == 0:
+        print(num,"is not prime")
         break
 else:
-    print("not prime")    
+    print(num,"is prime")    
