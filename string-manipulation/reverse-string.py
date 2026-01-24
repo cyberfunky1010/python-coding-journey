@@ -13,5 +13,5 @@ string2 = input("enter string: ")
 length = len(string2)
 i = 0
 for a in range(length-1,-1,-1):
-    print(string2[i]," ",string2[a])
+    print(string2[i],"\t",string2[a])
     i+=1
