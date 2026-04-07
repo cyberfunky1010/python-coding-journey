@@ -5,10 +5,12 @@ lst = eval(input("enter: "))
 
 length = len(lst)
 
-sum = 0
+sum = mean = 0
 
 for i in range(length):
     sum += lst[i]
-    mean = sum / length
+mean = sum / length
 
-print('sum is',mean)    
+print('given list is', lst)
+print('*******************')
+print('mean of the list is',mean)    
