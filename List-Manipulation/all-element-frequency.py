@@ -1,4 +1,4 @@
-# program to find frequency of all elements. also count duplicates and unique elements in the list. 
+# program to find frequency of all elements. also count duplicates and unique elements in the list.
 
 lst = eval(input("enter list: "))
 length = len(lst)
