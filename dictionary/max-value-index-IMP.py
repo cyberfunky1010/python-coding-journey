@@ -11,7 +11,7 @@
 # print('maximum values at index(my_points, 0) = ', max_x)
 # print('maximum values at index(my_points, 1) = ', max_y)
 
-# doing same program with different approach. 
+# doing same program with different approach.
 
 my_points = {'a':(4,3), 'b':(1,2), 'c':(5,1)}
 
