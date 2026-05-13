@@ -12,4 +12,4 @@ def sumof3multiples(n):
 
 greet()
 print(square(2))   #here print is must cuz in funciton there is only return statement unlike in funciton sumof3multiple which has already print statement. 
-sumof3multiples(2)
+sumof3multiples(2) #no print requred since print statement is already there in function definition. not recommended though. 
