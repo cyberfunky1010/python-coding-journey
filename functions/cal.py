@@ -4,7 +4,7 @@ def calx(x,y):
 num1 = int(input("enter num1 : "))
 num2 = int(input("enter num2 : "))
 
-sum, sub, mul, div, mod = calx(x,y)
+sum, sub, mul, div, mod = calx(num1,num2)
 
 print(f"sum of {num1} and {num2} is {sum}")
 print(f"sub of {num1} and {num2} is {sub}")
