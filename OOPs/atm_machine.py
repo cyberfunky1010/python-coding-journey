@@ -15,6 +15,7 @@ class Atm:
                         3. Enter 3 to withdrawl
                         4. Enter 4 to check balance
                         5. Enter 5 to change pin
+                        6. type any key to exit
 """)
         if user_input == '1':
             self.set_pin()
@@ -27,9 +28,10 @@ class Atm:
 
         elif user_input == '4':
             self.check_balance()
-
+        elif user_input == '5':
+            self.change_pin()
         else: 
-            print('exit')        
+            self.exit()  
      
     def set_pin(self):
         print(f" \t SET PIN MENU")
@@ -38,6 +40,9 @@ class Atm:
             print("PIN created successfully !!!")
         else:
             print("pin already created")
+
+        self.menu()       # accessing this method using object 'self' because only object can access diferent methods within a class.
+
     def change_pin(self):
         print(f" \t PIN CHANGE MENU")
         if self.pin:
@@ -49,6 +54,9 @@ class Atm:
                 print("wrong PIN entered. try again")     
         else:
             print("no pin set. try creating one")
+
+        self.menu()
+
     def deposit(self):
         print(f" \t MONEY DEPOSIT MENU")
         if self.pin:
@@ -61,6 +69,9 @@ class Atm:
                 print(f'WRONG PIN. try again')    
         else:
             print('pin not set')
+
+        self.menu()
+
     def withdrawl(self):
         print(f" \t MONEY WITHDRAWL MENU")
         if self.pin:
@@ -76,7 +87,9 @@ class Atm:
                 print(f'WRONG PIN. try again')
         else:
             print("pin not set")
-          
+
+        self.menu()
+
     def check_balance(self):
         print(f" \t CHECK BALANCE MENU")
         if self.pin:
@@ -87,10 +100,17 @@ class Atm:
                 print('invalid PIN !!!')
         else:
             print("pin not set")
+
+        self.menu()
+
     def exit(self):
         print('exit !!!')              
 
 # here you can make as much object as you want.
 # can also create objects on python shell. 
 
-sbi = Atm()
+# you can also directly access the constructor varible by obj.balance >> 0  or you can see pin by sbi.pin 
+# to hide it you do
+
+sbi = Atm()        # object or instance created
+
