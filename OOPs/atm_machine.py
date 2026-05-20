@@ -2,11 +2,19 @@ class Atm:
     
     #constructor
     def __init__(self):
-        self.pin = ""
-        self.balance = 0
+        self.__pin = ""       # implemented encapsulation here by putting __ . this hides the variable to access. 
+        self.__balance = 0
         
         self.menu()
-
+    def get(self):                 # a getter. here it is used to get pin
+        return self.__pin
+    
+    def set(self, new_pin):        # a setter. here it used to change or update pin according to my defined rule. so it must be in control. 
+        if type(new_pin) == str:
+            self.__pin = new_pin
+            print("pin changed succssfully")
+        else:
+            print("not allowed")    
     def menu(self):
         user_input = input(""" 
                    \t hello, how would you like to proced
@@ -35,8 +43,8 @@ class Atm:
      
     def set_pin(self):
         print(f" \t SET PIN MENU")
-        if not self.pin:
-            self.pin = input('create a PIN: ')
+        if not self.__pin:
+            self.__pin = input('create a PIN: ')
             print("PIN created successfully !!!")
         else:
             print("pin already created")
@@ -45,10 +53,10 @@ class Atm:
 
     def change_pin(self):
         print(f" \t PIN CHANGE MENU")
-        if self.pin:
+        if self.__pin:
             temp = input("enter pin:")
-            if temp == self.pin:
-                 self.pin = input("new pin: ")
+            if temp == self.__pin:
+                 self.__pin = input("new pin: ")
                  print("PIN changed successfully")
             else:
                 print("wrong PIN entered. try again")     
@@ -59,12 +67,12 @@ class Atm:
 
     def deposit(self):
         print(f" \t MONEY DEPOSIT MENU")
-        if self.pin:
+        if self.__pin:
             
             temp = input(f'enter pin: ')
-            if temp == self.pin:
+            if temp == self.__pin:
                 amount = int(input(f'enter amount: '))
-                self.balance = self.balance + amount     
+                self.__balance = self.__balance + amount     
             else:
                 print(f'WRONG PIN. try again')    
         else:
@@ -74,15 +82,15 @@ class Atm:
 
     def withdrawl(self):
         print(f" \t MONEY WITHDRAWL MENU")
-        if self.pin:
+        if self.__pin:
             temp = input(f'enter pin: ')
-            if temp == self.pin:
+            if temp == self.__pin:
                 amount = int(input(f'enter amount: '))
-                if amount < self.balance:
-                    self.balance = self.balance - amount
+                if amount < self.__balance:
+                    self.__balance = self.__balance - amount
                 else:
                     print('insufficient funds')
-                    print(f'try less than {self.balance}')
+                    print(f'try less than {self.__balance}')
             else:
                 print(f'WRONG PIN. try again')
         else:
@@ -92,10 +100,10 @@ class Atm:
 
     def check_balance(self):
         print(f" \t CHECK BALANCE MENU")
-        if self.pin:
+        if self.__pin:
             temp = input('enter pin: ')
-            if temp == self.pin:
-                print(self.balance)
+            if temp == self.__pin:
+                print(self.__balance)
             else:
                 print('invalid PIN !!!')
         else:
