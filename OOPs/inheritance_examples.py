@@ -207,5 +207,231 @@ print(f"get var {obj.get_var()}")
 ####################### Example 2 on Super ###################################
 print("*****************************************************")
 
+class Parent:
+     
+     def __init__(self):
+          
+          self.num = 100
 
+class Child(Parent):
+     
+     def __init__(self):
+          super().__init__()
+          self.var = 200
+
+     def show(self): 
+          print(self.var)    
+          print(self.num)  # will this work? kya child class ke andar se self ko use krke parents ke attribute ko call kr skte h ya nhi? ans - yes 
+                           # because self is the 'son' object and if this object can access from out side then it can access from inside too.  
+
+son = Child()
+son.show()      # here when calling show() the 'son' goes to parameter of show() (i.e. self) function. 
                
+####################### Example 3 on Super ###################################
+print("*****************************************************")
+
+class Parent:
+     
+     def __init__(self):
+          
+          self.__num = 100
+  
+     def show(self):                                  # this code doesn't run when object calling son.show() cuz of method overriding.
+          print(f"Parent: {self.__num}")
+
+class Child:
+
+     def __init__(self):
+           super().__init__()
+
+           self.__var = 20
+
+     def show(self):                                  # this code overrides the parent class show() method cuz of method overriding.
+          print(f"Child: {self.__var}")
+
+dad = Parent()
+dad.show()
+
+son = Child()
+son.show()
+
+
+####################### Example on Multi-level inheritance ###################################
+print("*****************************************************")
+
+class Product:
+
+     def review(self):
+          print("product customer review")
+
+class Phone(Product):
+
+     def __init__(self, price ,brand, camera):          
+          print("inside Phone constructor")
+          
+          self.price = price
+          self.brand = brand
+          self.camera = camera
+
+     def buy(self):
+          print("buying a phone")
+
+class SmartPhone(Phone):
+     pass
+
+s = SmartPhone(21000, "nokia", "laika")
+p = Phone(16000, "redmi", "sony")
+
+s.buy()
+s.review()
+p.review()
+
+####################### Hierarchical inheritance ########## one parent multiple children #########################
+print("*****************************************************")
+
+class Phone:
+
+     def __init__(self, price, brand, camera):
+
+          self.price = price
+          self.brand = brand
+          self.camera = camera
+
+     def buy(self):
+          print("buying a phone")
+
+     def return_phone(self):
+          print("returning a phone")     
+
+class SmartPhone(Phone):
+     pass
+
+class Feature(SmartPhone):
+     pass
+
+# any object of SmartPhone aur Feature can access methods of its parent class Phone.
+
+SmartPhone(24000, "oneplus", "Fujifilm").return_phone()
+Feature(12000, "redmi", "nicon").buy()
+
+####################### Multiple inheritance ###################################
+print("*****************************************************")
+
+class Phone:
+
+     def __init__(self, price, brand, camera):
+
+          self.price = price
+          self.brand = brand
+          self.camera = camera
+
+     def buy(self):
+          print("buying a phone")
+
+     def return_phone(self):
+          print("returning a phone")     
+
+class Product:
+
+     def review(self):
+          print("Customer review")
+
+class SmartPhone(Phone, Product): # inheriting from two classes
+     pass
+
+s = SmartPhone(15000, "nokia", "laika")
+
+s.buy()
+s.review()
+
+####################### method resolution order (MRO) ###################################
+print("*****************************************************")
+
+class Phone:
+
+     def __init__(self, price, brand, camera):
+
+          self.price = price
+          self.brand = brand
+          self.camera = camera
+
+     def buy(self):
+          print("buying a phone")     
+
+class Product:
+
+     def buy(self):
+          print("buying a product")
+
+class SmartPhone(Phone, Product): # According to MRO, when multiple parent classes contain a method with the same name,  
+     pass                         # Python executes the method from the class that appears first in the inheritance list.
+
+s = SmartPhone(15000, "xiome", 12)
+
+s.buy() # here phone method will execute cuz of MRO
+
+####################### example 1 on types ###################################
+print("*****************************************************")
+
+class A:
+
+     def m1(self):
+          return 10
+     
+class B(A):
+
+     def m1(self):
+          return 20
+
+     def m2(self):
+          return 30
+
+class C(B):
+
+     def m2(self):
+          return 40
+
+obj1 = A()
+obj2 = B()
+obj3 = C()
+
+print(obj1.m1() + obj3.m1() + obj3.m2()) #here in obj3.m1() there are 2 choices classB or A method to choose 
+# 10 + 20 + 40                            logically father's method will run. 
+
+####################### example 2 on types ############################## 
+print("*****************************************************")
+
+class A:
+
+     def m1(self):
+          return 20
+     
+class B(A):
+
+     def m1(self):
+          val = super().m1() + 30
+
+class C(B):
+
+     def m1(self):
+          val = self.m1() + 20 # recustion. here self is the current object so self.m1() = obj.m1(). when this line runs again you call the same method m1() infinitely
+          return val           # so after running infinitely python returns "maximum recursion depth exceeded" 
+     
+# obj = C()       # The work that obj performs outside the class is performed by self inside the class.
+# print(obj.m1())
+
+####################### Method overloading ############ 
+print("*****************************************************")
+
+class Geometry:                        # technially method overloading doesn't work in python. this program is written with some trick to implement the concept.
+
+     def area(self, a,b =0):
+         if b == 0:
+              print(f"circle {3.14 * a * a} ")
+         else:
+              print(f"rectangle {a * b}")
+
+obj = Geometry()
+
+obj.area(4)
+obj.area(4,3)
